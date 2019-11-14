@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-<h1>{{ equipe }}</h1>
+
 <div calss="container">
     <div class="columns">
          <div class="column">
@@ -13,8 +13,9 @@
                     <div class="card-content">
                         <div class="media">
                             <div class="media-content">
-                                <p class="title is-4">Nom</p>
-                                <p class="subtitle is-6">Prenom</p>
+                                <p class="title is-4">{{ personne.nom }}</p>
+                                <p class="subtitle is-6">{{ personne.prenom }}</p>
+                                 <p class="subtitle is-6">{{ personne.salaire | prix }}</p>
                             </div>
                         </div>
 
@@ -37,10 +38,14 @@
 </template>
 
 <script>
+import Afficheprix from '@/filters/Afficheprix'
 export default {
   name: 'equipe',
   props: {
-    equipe: String
+    personne: Object
+  },
+  filters:{
+    prix: Afficheprix
   }
 }
 </script>
